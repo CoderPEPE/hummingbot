@@ -19,6 +19,7 @@ from hummingbot.connector.connector_metrics_collector import (
     MetricsCollector,
     TradeVolumeMetricCollector,
 )
+from hummingbot.connector.exchange.apiengine.apiengine_utils import ApiEngineConfigMap
 from hummingbot.connector.exchange.binance.binance_utils import BinanceConfigMap
 from hummingbot.connector.exchange.gate_io.gate_io_utils import GateIOConfigMap
 from hummingbot.connector.exchange.kraken.kraken_utils import KrakenConfigMap
@@ -196,6 +197,7 @@ class ColorConfigMap(BaseClientModel):
 class PaperTradeConfigMap(BaseClientModel):
     paper_trade_exchanges: List = Field(
         default=[
+            ApiEngineConfigMap.model_config["title"],
             BinanceConfigMap.model_config["title"],
             KuCoinConfigMap.model_config["title"],
             KrakenConfigMap.model_config["title"],
